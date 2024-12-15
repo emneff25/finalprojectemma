@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Christmas Activity Generator</title>
+    <link rel="stylesheet" href="css/webstyle.css">
+    <script src="js/webscript.js" defer></script>
+    <style>
+        body {
+          font-family: sans-serif;
+          text-align: center;
+        }
+        #activity-list {
+          list-style-type: none;
+          padding: 0;
+        }
+        #activity-list li {
+          margin-bottom: 10px;
+        }
+        </style>
+</head>
+
+<body>
+<h1>Christmas Activity Ideas</h1>
+<button id="generate-button">Generate Ideas</button>
+<ul id="activity-list"></ul>
+
+<script>
+const activities = [
+  "Go ice skating",
+  "Visit a Christmas market",
+  "Bake Christmas cookies",
+  "Watch a Christmas movie marathon",
+  "Decorate a Christmas tree",
+  "Have a snowball fight (if there's snow!)",
+  "Volunteer at a local charity",
+  "Go carol singing",
+  "Attend a Christmas concert",
+  "Have a Christmas-themed dinner party"
+];
+
+const generateButton = document.getElementById('generate-button');
+const activityList = document.getElementById('activity-list');
+
+generateButton.addEventListener('click', () => {
+  activityList.innerHTML = ''; // Clear previous results
+  const numActivities = Math.floor(Math.random() * 3) + 4; // 4-5 random activities
+  for (let i = 0; i < numActivities; i++) {
+    const randomIndex = Math.floor(Math.random() * activities.length);
+    const activityItem = document.createElement('li');
+    activityItem.textContent = activities[randomIndex];
+    activityList.appendChild(activityItem);
+  }
+});
+</script>
+</body>
+</html>
